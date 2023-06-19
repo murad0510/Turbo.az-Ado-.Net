@@ -10,11 +10,11 @@ using Turbo.az__Ado.Net.Entities;
 
 namespace Turbo.az__Ado.Net.DataAccess.Concrete
 {
-    public class BrandRepository : IBrandRepository
+    public class EFBrandRepository : IBrandRepository
     {
         private TurboContext _context;
 
-        public BrandRepository()
+        public EFBrandRepository()
         {
             _context = new TurboContext();
         }

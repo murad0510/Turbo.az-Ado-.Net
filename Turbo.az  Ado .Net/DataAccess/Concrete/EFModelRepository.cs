@@ -5,47 +5,47 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Media;
 using Turbo.az__Ado.Net.DataAccess.Abstractions;
 using Turbo.az__Ado.Net.Entities;
 
 namespace Turbo.az__Ado.Net.DataAccess.Concrete
 {
-    public class ColorRepository : IColorRepository
+    public class EFModelRepository : IModelRepository
     {
         private TurboContext _context;
 
-        public ColorRepository()
+        public EFModelRepository()
         {
             _context = new TurboContext();
         }
-        public void AddData(CarColor data)
+        public void AddData(Model data)
         {
             _context.Entry(data).State = EntityState.Added;
             _context.SaveChanges();
         }
 
-        public void DeleteData(CarColor data)
+        public void DeleteData(Model data)
         {
             _context.Entry(data).State = EntityState.Deleted;
             _context.SaveChanges();
         }
 
-        public ObservableCollection<CarColor> GetAll()
+        public ObservableCollection<Model> GetAll()
         {
-            throw new NotImplementedException();
+            var result = from b in _context.Models
+                         select b;
+
+            return new ObservableCollection<Model>(result);
         }
 
-        public CarColor GetData(int id)
+        public Model GetData(int id)
         {
-            //var result = _context.Colors.FirstOrDefault(b => b.Id == id);
+            var result = _context.Models.FirstOrDefault(b => b.Id == id);
 
-            //return result;
-            throw new NotImplementedException();
-
+            return result;
         }
 
-        public void UpdateData(CarColor data)
+        public void UpdateData(Model data)
         {
             _context.Entry(data).State = EntityState.Modified;
             _context.SaveChanges();

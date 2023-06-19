@@ -10,9 +10,14 @@ using Turbo.az__Ado.Net.Entities;
 
 namespace Turbo.az__Ado.Net.DataAccess.Concrete
 {
-    public class CityRepository : ICityRepository
+    public class EFCityRepository : ICityRepository
     {
         private TurboContext _context;
+
+        public EFCityRepository()
+        {
+            _context = new TurboContext();
+        }
         public void AddData(City data)
         {
             _context.Entry(data).State = EntityState.Added;

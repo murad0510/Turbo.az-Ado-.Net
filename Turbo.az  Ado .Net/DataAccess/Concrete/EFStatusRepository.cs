@@ -10,37 +10,42 @@ using Turbo.az__Ado.Net.Entities;
 
 namespace Turbo.az__Ado.Net.DataAccess.Concrete
 {
-    public class CarRepository : ICarRepository
+    public class EFStatusRepository : IStatusRepository
     {
         private TurboContext _context;
-        public void AddData(Car data)
+
+        public EFStatusRepository()
+        {
+            _context = new TurboContext();
+        }
+        public void AddData(Status data)
         {
             _context.Entry(data).State = EntityState.Added;
             _context.SaveChanges();
         }
 
-        public void DeleteData(Car data)
+        public void DeleteData(Status data)
         {
             _context.Entry(data).State = EntityState.Deleted;
             _context.SaveChanges();
         }
 
-        public ObservableCollection<Car> GetAll()
+        public ObservableCollection<Status> GetAll()
         {
-            var result = from b in _context.Cars
+            var result = from b in _context.Status
                          select b;
 
-            return new ObservableCollection<Car>(result);
+            return new ObservableCollection<Status>(result);
         }
 
-        public Car GetData(int id)
+        public Status GetData(int id)
         {
-            var result = _context.Cars.FirstOrDefault(b => b.Id == id);
+            var result = _context.Status.FirstOrDefault(b => b.Id == id);
 
             return result;
         }
 
-        public void UpdateData(Car data)
+        public void UpdateData(Status data)
         {
             _context.Entry(data).State = EntityState.Modified;
             _context.SaveChanges();

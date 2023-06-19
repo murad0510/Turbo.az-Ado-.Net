@@ -32,5 +32,6 @@ namespace Turbo.az__Ado.Net.DataAccess
         public DbSet<CarColor> Colors { get; set; }
         public DbSet<Model> Models { get; set; }
         public DbSet<Status> Status { get; set; }
+        public DbSet<FuelType> FuelTypes { get; set; }
     }
 }
