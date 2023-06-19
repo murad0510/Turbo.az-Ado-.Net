@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using Turbo.az__Ado.Net.Entities;
 
 namespace Turbo.az__Ado.Net.DataAccess.Abstractions
 {
-    public interface IColorRepository : IRepository<Entities.Color>
+    public interface IColorRepository : IRepository<CarColor>
     {
 
     }

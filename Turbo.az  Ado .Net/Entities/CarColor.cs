@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Turbo.az__Ado.Net.Entities
 {
-    public class Color
+    public class CarColor
     {
         public int Id { get; set; }
         public string ColorName { get; set; }

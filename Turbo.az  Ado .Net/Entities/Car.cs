@@ -22,7 +22,7 @@ namespace Turbo.az__Ado.Net.Entities
         public virtual Model Model { get; set; }
         public virtual City City { get; set; }
         public virtual Status Status { get; set; }
-        public virtual Color Color { get; set; }
+        public virtual CarColor Color { get; set; }
 
     }
 }

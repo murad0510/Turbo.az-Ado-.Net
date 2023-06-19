@@ -94,7 +94,7 @@
     <Compile Include="Domain\ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Entities\Car.cs" />
     <Compile Include="Entities\City.cs" />
-    <Compile Include="Entities\Color.cs" />
+    <Compile Include="Entities\CarColor.cs" />
     <Compile Include="Entities\Brand.cs" />
     <Compile Include="Entities\Mapping\BrandMap.cs" />
     <Compile Include="Entities\Mapping\CarMap.cs" />

@@ -29,7 +29,7 @@ namespace Turbo.az__Ado.Net.DataAccess
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Car> Cars { get; set; }
         public DbSet<City> Cities { get; set; }
-        public DbSet<Color> Colors { get; set; }
+        public DbSet<CarColor> Colors { get; set; }
         public DbSet<Model> Models { get; set; }
         public DbSet<Status> Status { get; set; }
     }

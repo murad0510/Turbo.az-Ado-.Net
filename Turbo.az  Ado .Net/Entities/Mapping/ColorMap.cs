@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Turbo.az__Ado.Net.Entities.Mapping
 {
-    public class ColorMap : EntityTypeConfiguration<Color>
+    public class ColorMap : EntityTypeConfiguration<CarColor>
     {
         public ColorMap()
         {
