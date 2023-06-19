@@ -14,19 +14,18 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Turbo.az__Ado.Net.Domain.ViewModels;
 
-namespace Turbo.az__Ado.Net
+namespace Turbo.az__Ado.Net.Domain.Views.UserControls
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainUserControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainUserControl : UserControl
     {
-        public MainWindow()
+        public MainUserControl()
         {
             InitializeComponent();
-            App.wrapPanel = CarWrapPanel;
-            MainWindowViewModel viewModel = new MainWindowViewModel();
-            this.DataContext = viewModel;
+            MainUserControlViewModel viewModel = new MainUserControlViewModel();
+            this.DataContext = viewModel;   
         }
     }
 }

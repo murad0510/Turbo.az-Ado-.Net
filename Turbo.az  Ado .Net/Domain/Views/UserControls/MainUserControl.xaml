@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="Turbo.az__Ado.Net.Domain.Views.UserControls.MainUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Turbo.az__Ado.Net.Domain.Views.UserControls"
+             mc:Ignorable="d" 
+             Width="330" Height="400" Background="White" Margin="70,10,0,70">
+    <Grid>
+        <Canvas>
+            <Image Source="{Binding CarImage}" Width="330" Height="230"></Image>
+
+            <TextBlock Text="{Binding Price}" FontSize="20" Canvas.Bottom="120" Canvas.Left="20"></TextBlock>
+            <TextBlock Text="{Binding ModelAndBrand}" FontSize="20" Canvas.Bottom="70" Canvas.Left="20"></TextBlock>
+            <TextBlock Text="{Binding Year}" FontSize="20" Canvas.Bottom="30" Canvas.Left="20"></TextBlock>
+
+            <Button Width="330" Height="400" Background="Transparent"></Button>
+
+
+        </Canvas>
+
+    </Grid>
+</UserControl>

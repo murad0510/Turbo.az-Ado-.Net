@@ -20,7 +20,7 @@ namespace Turbo.az__Ado.Net.DataAccess.Concrete
         }
         public void AddData(Car data)
         {
-            _context.Entry(data).State = EntityState.Added;
+            _context.Cars.Add(data);
             _context.SaveChanges();
         }
 
