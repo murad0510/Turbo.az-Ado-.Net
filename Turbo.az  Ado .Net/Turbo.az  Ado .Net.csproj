@@ -79,6 +79,7 @@
     <Compile Include="DataAccess\Abstractions\ICarRepository.cs" />
     <Compile Include="DataAccess\Abstractions\ICityRepository.cs" />
     <Compile Include="DataAccess\Abstractions\IColorRepository.cs" />
+    <Compile Include="DataAccess\Abstractions\IFuelRepository.cs" />
     <Compile Include="DataAccess\Abstractions\IModelRepository.cs" />
     <Compile Include="DataAccess\Abstractions\IRepository.cs" />
     <Compile Include="DataAccess\Abstractions\IStatusRepository.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="DataAccess\Concrete\CarRepository.cs" />
     <Compile Include="DataAccess\Concrete\CityRepository.cs" />
     <Compile Include="DataAccess\Concrete\ColorRepository.cs" />
+    <Compile Include="DataAccess\Concrete\FuelTypeRepository.cs" />
     <Compile Include="DataAccess\Concrete\ModelRepository.cs" />
     <Compile Include="DataAccess\Concrete\StatusRepository.cs" />
     <Compile Include="DataAccess\TurboContext.cs" />
@@ -96,10 +98,12 @@
     <Compile Include="Entities\City.cs" />
     <Compile Include="Entities\CarColor.cs" />
     <Compile Include="Entities\Brand.cs" />
+    <Compile Include="Entities\FuelType.cs" />
     <Compile Include="Entities\Mapping\BrandMap.cs" />
     <Compile Include="Entities\Mapping\CarMap.cs" />
     <Compile Include="Entities\Mapping\CityMap.cs" />
     <Compile Include="Entities\Mapping\ColorMap.cs" />
+    <Compile Include="Entities\Mapping\FuelTypeMap.cs" />
     <Compile Include="Entities\Mapping\ModelMap.cs" />
     <Compile Include="Entities\Mapping\StatusMap.cs" />
     <Compile Include="Entities\Model.cs" />
@@ -110,11 +114,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202306181452206_Init.cs" />
-    <Compile Include="Migrations\202306181452206_Init.designer.cs">
-      <DependentUpon>202306181452206_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -128,9 +127,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202306181452206_Init.resx">
-      <DependentUpon>202306181452206_Init.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

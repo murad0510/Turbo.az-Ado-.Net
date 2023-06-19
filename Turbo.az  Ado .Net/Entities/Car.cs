@@ -17,12 +17,14 @@ namespace Turbo.az__Ado.Net.Entities
         public double Km { get; set; }
         public DateTime Year { get; set; }
         public string CarImage { get; set; }
+        public int FuelTypeId { get; set; }
 
 
         public virtual Model Model { get; set; }
         public virtual City City { get; set; }
         public virtual Status Status { get; set; }
         public virtual CarColor Color { get; set; }
+        public virtual FuelType FuelType { get; set; }
 
     }
 }
