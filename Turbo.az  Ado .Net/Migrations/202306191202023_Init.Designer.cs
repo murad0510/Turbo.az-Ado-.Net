@@ -13,7 +13,7 @@ namespace Turbo.az__Ado.Net.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202306191005505_Init"; }
+            get { return "202306191202023_Init"; }
         }
         
         string IMigrationMetadata.Source

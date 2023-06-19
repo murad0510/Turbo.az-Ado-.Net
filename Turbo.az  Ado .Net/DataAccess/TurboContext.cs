@@ -23,7 +23,6 @@ namespace Turbo.az__Ado.Net.DataAccess
             modelBuilder.Configurations.Add(new ModelMap());
             modelBuilder.Configurations.Add(new CityMap());
             modelBuilder.Configurations.Add(new ColorMap());
-            modelBuilder.Configurations.Add(new StatusMap());
         }
 
         public DbSet<Brand> Brands { get; set; }
@@ -31,7 +30,6 @@ namespace Turbo.az__Ado.Net.DataAccess
         public DbSet<City> Cities { get; set; }
         public DbSet<CarColor> Colors { get; set; }
         public DbSet<Model> Models { get; set; }
-        public DbSet<Status> Status { get; set; }
         public DbSet<FuelType> FuelTypes { get; set; }
     }
 }

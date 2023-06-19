@@ -23,6 +23,11 @@ namespace Turbo.az__Ado.Net.Entities.Mapping
                 .IsRequired();
 
             this.Property(h => h.CarImage);
+
+            this.Property(p => p.IsNew).IsRequired();
+
+            this.Property(p => p.Engine).IsRequired();
+
         }
 
     }

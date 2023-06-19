@@ -82,16 +82,14 @@
     <Compile Include="DataAccess\Abstractions\IFuelRepository.cs" />
     <Compile Include="DataAccess\Abstractions\IModelRepository.cs" />
     <Compile Include="DataAccess\Abstractions\IRepository.cs" />
-    <Compile Include="DataAccess\Abstractions\IStatusRepository.cs" />
     <Compile Include="DataAccess\Abstractions\IUnitOfWork.cs" />
     <Compile Include="DataAccess\Concrete\EFBrandRepository.cs" />
     <Compile Include="DataAccess\Concrete\EFCarRepository.cs" />
     <Compile Include="DataAccess\Concrete\EFCityRepository.cs" />
     <Compile Include="DataAccess\Concrete\EFColorRepository.cs" />
     <Compile Include="DataAccess\Concrete\EFFuelTypeRepository.cs" />
-    <Compile Include="DataAccess\Concrete\EFIUnitOfWork.cs" />
+    <Compile Include="DataAccess\Concrete\EFUnitOfWork.cs" />
     <Compile Include="DataAccess\Concrete\EFModelRepository.cs" />
-    <Compile Include="DataAccess\Concrete\EFStatusRepository.cs" />
     <Compile Include="DataAccess\TurboContext.cs" />
     <Compile Include="Domain\ViewModels\BaseViewModel.cs" />
     <Compile Include="Domain\ViewModels\MainWindowViewModel.cs" />
@@ -106,18 +104,16 @@
     <Compile Include="Entities\Mapping\ColorMap.cs" />
     <Compile Include="Entities\Mapping\FuelTypeMap.cs" />
     <Compile Include="Entities\Mapping\ModelMap.cs" />
-    <Compile Include="Entities\Mapping\StatusMap.cs" />
     <Compile Include="Entities\Model.cs" />
-    <Compile Include="Entities\Status.cs" />
     <Compile Include="Domain\Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202306191005505_Init.cs" />
-    <Compile Include="Migrations\202306191005505_Init.designer.cs">
-      <DependentUpon>202306191005505_Init.cs</DependentUpon>
+    <Compile Include="Migrations\202306191202023_Init.cs" />
+    <Compile Include="Migrations\202306191202023_Init.designer.cs">
+      <DependentUpon>202306191202023_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -133,8 +129,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202306191005505_Init.resx">
-      <DependentUpon>202306191005505_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202306191202023_Init.resx">
+      <DependentUpon>202306191202023_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

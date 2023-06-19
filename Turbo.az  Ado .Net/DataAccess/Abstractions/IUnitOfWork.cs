@@ -9,12 +9,11 @@ namespace Turbo.az__Ado.Net.DataAccess.Abstractions
 {
     public interface IUnitOfWork
     {
-        IBrandRepository IBrandRepository { get; }
-        ICityRepository ICityRepository { get; }
-        IFuelRepository IFuelRepository { get; }
-        IModelRepository IModelRepository { get;  }
-        IStatusRepository IStatusRepository { get; }
-        IColorRepository IColorRepository { get; }
-        ICarRepository ICarRepository { get; }
+        IBrandRepository brandRepository { get; }
+        ICityRepository cityRepository { get; }
+        IFuelRepository fuelRepository { get; }
+        IModelRepository modelRepository { get;  }
+        IColorRepository colorRepository { get; }
+        ICarRepository carRepository { get; }
     }
 }
