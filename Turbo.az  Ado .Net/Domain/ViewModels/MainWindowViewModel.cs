@@ -40,6 +40,8 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
 
                 MainUserControlViewModel.City = city.Name;
 
+                MainUserControlViewModel.Id = unitOfWork.carRepository.GetData(i).Id;
+
                 MainUserControlViewModel.Model = brand.Name;
 
                 MainUserControl.DataContext = MainUserControlViewModel;

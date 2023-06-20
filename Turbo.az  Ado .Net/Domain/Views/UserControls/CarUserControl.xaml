@@ -30,17 +30,33 @@
             <Label Content="Model  : " FontSize="20" Canvas.Right="440" Canvas.Top="90"></Label>
             <Label Content="Price  : " FontSize="20" Canvas.Right="455" Canvas.Top="150"></Label>
             <Label Content="Color  : " FontSize="20" Canvas.Right="455" Canvas.Top="210"></Label>
+            <!--<Label Content="Km  : " FontSize="20" Canvas.Right="455" Canvas.Top="210"></Label>-->
+
 
 
 
             <Label Content="{Binding City}"   Canvas.Right="370" FontSize="20" Canvas.Top="35"></Label>
-            
+
             <TextBlock Text="{Binding Model}" Canvas.Right="250" FontSize="20" Canvas.Top="95"></TextBlock>
-            
+
             <TextBlock Text="{Binding Price}" Canvas.Right="330" FontSize="20" Canvas.Top="155"></TextBlock>
-            
+
             <TextBlock Text="{Binding Color}" Canvas.Right="330" FontSize="20" Canvas.Top="215"></TextBlock>
 
+            <Canvas>
+
+                <Button Command="{Binding BackButton}" Canvas.Left="1410" Canvas.Top="5" Width="66" Height="66">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="40"/>
+                        </Style>
+                    </Button.Resources>
+                    <Image Source="/Images/back arrow.png" Canvas.Left="1405" Canvas.Top="-2" Width="80" HorizontalAlignment="Left" Height="84" VerticalAlignment="Top"></Image>
+                    
+                </Button>
+
+
+            </Canvas>
 
 
         </Canvas>
