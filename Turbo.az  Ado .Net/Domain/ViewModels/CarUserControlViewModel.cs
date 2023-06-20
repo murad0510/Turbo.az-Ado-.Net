@@ -40,6 +40,13 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
             set { price = value; OnPropertyChanged(); }
         }
 
+        private string color;
+
+        public string Color
+        {
+            get { return color; }
+            set { color = value; OnPropertyChanged(); }
+        }
 
     }
 }

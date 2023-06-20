@@ -44,6 +44,11 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
 
                 MainUserControl.DataContext = MainUserControlViewModel;
 
+                var colorId = unitOfWork.carRepository.GetData(i).ColorId;
+                var color = unitOfWork.colorRepository.GetData(colorId).ColorName;
+
+                MainUserControlViewModel.Color = color;
+
                 App.wrapPanel.Children.Add(MainUserControl);
             }
         }

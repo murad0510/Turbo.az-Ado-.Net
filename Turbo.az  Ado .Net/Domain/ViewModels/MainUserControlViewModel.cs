@@ -54,6 +54,14 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
             set { city = value; OnPropertyChanged(); }
         }
 
+        private string color;
+
+        public string Color
+        {
+            get { return color; }
+            set { color = value; }
+        }
+
 
         public MainUserControlViewModel()
         {
@@ -68,6 +76,7 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
                 carUserControlView.City = City;
                 carUserControlView.Model = Model;
                 carUserControlView.Price = Price;
+                carUserControlView.Color = Color;
 
                 carUserControl.DataContext = carUserControlView;
 

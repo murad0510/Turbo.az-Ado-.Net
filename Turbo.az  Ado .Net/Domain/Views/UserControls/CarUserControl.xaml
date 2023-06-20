@@ -29,14 +29,18 @@
             <Label Content="City   : " FontSize="20" Canvas.Right="460" Canvas.Top="30"></Label>
             <Label Content="Model  : " FontSize="20" Canvas.Right="440" Canvas.Top="90"></Label>
             <Label Content="Price  : " FontSize="20" Canvas.Right="455" Canvas.Top="150"></Label>
+            <Label Content="Color  : " FontSize="20" Canvas.Right="455" Canvas.Top="210"></Label>
 
 
 
             <Label Content="{Binding City}"   Canvas.Right="370" FontSize="20" Canvas.Top="35"></Label>
             
-            <TextBlock Text="{Binding Model}" Canvas.Right="250" FontSize="20" Canvas.Top="94"></TextBlock>
+            <TextBlock Text="{Binding Model}" Canvas.Right="250" FontSize="20" Canvas.Top="95"></TextBlock>
             
             <TextBlock Text="{Binding Price}" Canvas.Right="330" FontSize="20" Canvas.Top="155"></TextBlock>
+            
+            <TextBlock Text="{Binding Color}" Canvas.Right="330" FontSize="20" Canvas.Top="215"></TextBlock>
+
 
 
         </Canvas>
