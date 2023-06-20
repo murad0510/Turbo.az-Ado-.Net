@@ -103,9 +103,9 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
 
                 App.wrapPanel.Children.Add(carUserControl);
 
-                var count = unitOfWork.carRepository.GetAll().Count;
+                //var count = unitOfWork.carRepository.GetAll().Count;
 
-                for (int i = 1; i < count; i++)
+                for (int i = 1; i < unitOfWork.carRepository.GetAll().Count; i++)
                 {
                     var model = unitOfWork.carRepository.GetAll()[i].ModelId;
 
