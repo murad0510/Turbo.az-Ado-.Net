@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Turbo.az__Ado.Net.Commands;
 using Turbo.az__Ado.Net.DataAccess.Abstractions;
+using Turbo.az__Ado.Net.Domain.Views.UserControls;
 
 namespace Turbo.az__Ado.Net.Domain.ViewModels
 {
@@ -23,7 +24,7 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
 
         private string modelAndBrand;
 
-        public string ModelAndBrand
+        public string Model
         {
             get { return modelAndBrand; }
             set { modelAndBrand = value; OnPropertyChanged(); }
@@ -45,12 +46,32 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
             set { carImage = value; OnPropertyChanged(); }
         }
 
+        private string city;
+
+        public string City
+        {
+            get { return city; }
+            set { city = value; OnPropertyChanged(); }
+        }
+
 
         public MainUserControlViewModel()
         {
             CarClick = new RelayCommand((obj) =>
             {
-                MessageBox.Show("s");
+                App.wrapPanel.Children.Clear();
+
+                CarUserControl carUserControl = new CarUserControl();
+                CarUserControlViewModel carUserControlView = new CarUserControlViewModel();
+
+                carUserControlView.CarImagePath = CarImage;
+                carUserControlView.City = City;
+                carUserControlView.Model = Model;
+                carUserControlView.Price = Price;
+
+                carUserControl.DataContext = carUserControlView;
+
+                App.wrapPanel.Children.Add(carUserControl);
             });
         }
 

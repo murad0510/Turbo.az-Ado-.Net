@@ -15,7 +15,8 @@
         </Grid.RowDefinitions>
 
         <Label Background="Red" Content="Turbo.az" Foreground="White" FontSize="100" HorizontalContentAlignment="Center"></Label>
-
-        <WrapPanel x:Name="CarWrapPanel" Grid.Row="2"></WrapPanel>
+        <ScrollViewer Grid.Row="2">
+            <WrapPanel x:Name="CarWrapPanel" Grid.Row="2"></WrapPanel>
+        </ScrollViewer>
     </Grid>
 </Window>

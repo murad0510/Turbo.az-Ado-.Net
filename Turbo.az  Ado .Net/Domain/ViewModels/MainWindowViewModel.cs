@@ -20,20 +20,27 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
         {
             unitOfWork = new EFUnitOfWork();
 
+            var GetAllCount = unitOfWork.carRepository.GetAll().Count;
 
-
-            for (int i = 0; i < unitOfWork.carRepository.GetAll().Count; i++)
+            for (int i = 1; i < GetAllCount; i++)
             {
                 MainUserControl = new MainUserControl();
                 MainUserControlViewModel = new MainUserControlViewModel();
                 var model = unitOfWork.carRepository.GetAll()[i].ModelId;
 
-                var brand = unitOfWork.brandRepository.GetData(model);
+                var brand = unitOfWork.modelRepository.GetData(model);
 
-                MainUserControlViewModel.Price = unitOfWork.carRepository.GetAll()[i].Price;
-                MainUserControlViewModel.CarImage = unitOfWork.carRepository.GetAll()[i].CarImage;
+                MainUserControlViewModel.Price = unitOfWork.carRepository.GetData(i).Price;
 
-                MainUserControlViewModel.ModelAndBrand = brand.Name;
+                MainUserControlViewModel.CarImage = unitOfWork.carRepository.GetData(i).CarImage;
+
+                MainUserControlViewModel.Production = unitOfWork.carRepository.GetData(i).Year;
+
+                var city = unitOfWork.carRepository.GetData(i).City;
+
+                MainUserControlViewModel.City = city.Name;
+
+                MainUserControlViewModel.Model = brand.Name;
 
                 MainUserControl.DataContext = MainUserControlViewModel;
 

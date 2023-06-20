@@ -66,6 +66,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Dictionaries\ColorDictionaries.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dictionaries\ElementStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Domain\Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -92,8 +100,12 @@
     <Compile Include="DataAccess\Concrete\EFModelRepository.cs" />
     <Compile Include="DataAccess\TurboContext.cs" />
     <Compile Include="Domain\ViewModels\BaseViewModel.cs" />
+    <Compile Include="Domain\ViewModels\CarUserControlViewModel.cs" />
     <Compile Include="Domain\ViewModels\MainUserControlViewModel.cs" />
     <Compile Include="Domain\ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Domain\Views\UserControls\CarUserControl.xaml.cs">
+      <DependentUpon>CarUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Domain\Views\UserControls\MainUserControl.xaml.cs">
       <DependentUpon>MainUserControl.xaml</DependentUpon>
     </Compile>
@@ -113,6 +125,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Domain\Views\UserControls\CarUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Domain\Views\UserControls\MainUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:Turbo.az__Ado.Net"
              StartupUri="Domain\Views\MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionaries\ColorDictionaries.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Dictionaries\ElementStyle.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

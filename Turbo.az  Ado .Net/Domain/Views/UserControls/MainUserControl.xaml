@@ -5,16 +5,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Turbo.az__Ado.Net.Domain.Views.UserControls"
              mc:Ignorable="d" 
-             Width="330" Height="400" Background="White" Margin="70,10,0,70">
+             Width="330" Height="460" Background="White" Margin="70,10,0,70">
     <Grid>
         <Canvas>
-            <Image Source="{Binding CarImage}" Width="330" Height="230"></Image>
 
-            <TextBlock Text="{Binding Price}" FontSize="20" Canvas.Bottom="120" Canvas.Left="20"></TextBlock>
-            <TextBlock Text="{Binding ModelAndBrand}" FontSize="20" Canvas.Bottom="70" Canvas.Left="20"></TextBlock>
-            <TextBlock Text="{Binding Year}" FontSize="20" Canvas.Bottom="30" Canvas.Left="20"></TextBlock>
 
-            <Button Width="330" Height="400" Background="Transparent"></Button>
+            <Label Panel.ZIndex="1" Content="Qiymet : " FontSize="19" Canvas.Bottom="125"></Label>
+            <Label Panel.ZIndex="1" Content="Model : " FontSize="19" Canvas.Bottom="60"></Label>
+            <Label Panel.ZIndex="1" Content="Year : " FontSize="19" Canvas.Bottom="10"></Label>
+
+
+
+            <Label Panel.ZIndex="1" Content="{Binding Price}" FontSize="20" Canvas.Bottom="124" Canvas.Left="90"></Label>
+            <Label Panel.ZIndex="1" Content="{Binding Model}" FontSize="20" Canvas.Bottom="55" Canvas.Left="90" ></Label>
+            <TextBlock Panel.ZIndex="1" Text="{Binding Production}" FontSize="20" Canvas.Bottom="10" Canvas.Left="70"></TextBlock>
+            
+            <Button Style="{StaticResource MyLabelAnimation}" Command="{Binding CarClick}" Width="330" Height="460" Background="Transparent">
+                <Canvas>
+                    <Image Canvas.Top="-230" Canvas.Left="-165" Source="{Binding CarImage}" Width="330" Height="240"></Image>
+                </Canvas>
+            </Button>
 
 
         </Canvas>
