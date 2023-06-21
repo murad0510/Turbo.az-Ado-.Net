@@ -19,7 +19,8 @@
             <Label Panel.ZIndex="1" Content="{Binding Price}" FontSize="20" Canvas.Bottom="124" Canvas.Left="90"></Label>
             <Label Panel.ZIndex="1" Content="{Binding Model}" FontSize="20" Canvas.Bottom="55" Canvas.Left="90" ></Label>
             <TextBlock Panel.ZIndex="1" Text="{Binding Production}" FontSize="20" Canvas.Bottom="10" Canvas.Left="70"></TextBlock>
-            
+
+
             <Button Style="{StaticResource MyLabelAnimation}" Command="{Binding CarClick}" Width="330" Height="460" Background="Transparent">
                 <Canvas>
                     <Image Canvas.Top="-230" Canvas.Left="-165" Source="{Binding CarImage}" Width="330" Height="240"></Image>

@@ -8,6 +8,7 @@ using Turbo.az__Ado.Net.Commands;
 using Turbo.az__Ado.Net.DataAccess.Abstractions;
 using Turbo.az__Ado.Net.DataAccess.Concrete;
 using Turbo.az__Ado.Net.Domain.Views.UserControls;
+using Turbo.az__Ado.Net.Entities;
 
 namespace Turbo.az__Ado.Net.Domain.ViewModels
 {
@@ -20,8 +21,17 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
         public int Id
         {
             get { return id; }
-            set { id = value; }
+            set { id = value; OnPropertyChanged(); }
         }
+
+        //private Car car;
+
+        //public Car Car
+        //{
+        //    get { return car; }
+        //    set { car = value; OnPropertyChanged(); }
+        //}
+
 
 
         private decimal price;
@@ -69,13 +79,42 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
         public string Color
         {
             get { return color; }
-            set { color = value; }
+            set { color = value; OnPropertyChanged(); }
+        }
+
+        private double km;
+
+        public double Km
+        {
+            get { return km; }
+            set { km = value; OnPropertyChanged(); }
+        }
+
+        private string fuelType;
+
+        public string FuelType
+        {
+            get { return fuelType; }
+            set { fuelType = value; OnPropertyChanged(); }
+        }
+
+        private bool isNew;
+
+        public bool IsNew
+        {
+            get { return isNew; }
+            set { isNew = value; OnPropertyChanged(); }
+        }
+
+        private string engine;
+
+        public string Engine
+        {
+            get { return engine; }
+            set { engine = value; OnPropertyChanged(); }
         }
 
         private IUnitOfWork unitOfWork;
-
-        MainUserControl MainUserControl;
-        MainUserControlViewModel MainUserControlViewMode;
 
         public MainUserControlViewModel()
         {
@@ -83,12 +122,6 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
             CarClick = new RelayCommand((obj) =>
             {
                 App.wrapPanel.Children.Clear();
-
-                var modelCar = unitOfWork.carRepository.GetData(Id).ModelId;
-
-                var brandCar = unitOfWork.modelRepository.GetData(modelCar);
-
-                var brandc=unitOfWork.brandRepository.GetData(brandCar.BrandId);
 
                 CarUserControl carUserControl = new CarUserControl();
                 CarUserControlViewModel carUserControlView = new CarUserControlViewModel();
@@ -98,47 +131,25 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
                 carUserControlView.Model = Model;
                 carUserControlView.Price = Price;
                 carUserControlView.Color = Color;
+                carUserControlView.Km = Km;
+                carUserControlView.Production = Production;
+                carUserControlView.Engine = Engine;
+                carUserControlView.FuelType = FuelType;
+                carUserControlView.Id = Id;
+
+                if (IsNew)
+                {
+                    carUserControlView.NewOrOld = "Yes";
+                }
+                else
+                {
+                    carUserControlView.NewOrOld = "No";
+                }
 
                 carUserControl.DataContext = carUserControlView;
 
                 App.wrapPanel.Children.Add(carUserControl);
 
-                //var count = unitOfWork.carRepository.GetAll().Count;
-
-                for (int i = 1; i < unitOfWork.carRepository.GetAll().Count; i++)
-                {
-                    var model = unitOfWork.carRepository.GetAll()[i].ModelId;
-
-                    var brand = unitOfWork.modelRepository.GetData(model);
-                    if (brand.BrandId == brandc.Id)
-                    {
-                        MainUserControl = new MainUserControl();
-                        MainUserControlViewMode = new MainUserControlViewModel();
-
-                        MainUserControlViewMode.Price = unitOfWork.carRepository.GetData(i).Price;
-
-                        MainUserControlViewMode.CarImage = unitOfWork.carRepository.GetData(i).CarImage;
-
-                        MainUserControlViewMode.Production = unitOfWork.carRepository.GetData(i).Year;
-
-                        var city = unitOfWork.carRepository.GetData(i).City;
-
-                        MainUserControlViewMode.City = city.Name;
-
-                        MainUserControlViewMode.Id = unitOfWork.carRepository.GetData(i).Id;
-
-                        MainUserControlViewMode.Model = brand.Name;
-
-                        MainUserControl.DataContext = MainUserControlViewMode;
-
-                        var colorId = unitOfWork.carRepository.GetData(i).ColorId;
-                        var color = unitOfWork.colorRepository.GetData(colorId).ColorName;
-
-                        MainUserControlViewMode.Color = color;
-
-                        App.wrapPanel.Children.Add(MainUserControl);
-                    }
-                }
             });
         }
 

@@ -30,7 +30,15 @@
             <Label Content="Model  : " FontSize="20" Canvas.Right="440" Canvas.Top="90"></Label>
             <Label Content="Price  : " FontSize="20" Canvas.Right="455" Canvas.Top="150"></Label>
             <Label Content="Color  : " FontSize="20" Canvas.Right="455" Canvas.Top="210"></Label>
-            <!--<Label Content="Km  : " FontSize="20" Canvas.Right="455" Canvas.Top="210"></Label>-->
+            <Label Content="Km  : " FontSize="20" Canvas.Right="470" Canvas.Top="270"></Label>
+            <Label Content="Production  : " FontSize="20" Canvas.Right="410" Canvas.Top="330"></Label>
+            <Label Content="Fuel Type  : " FontSize="20" Canvas.Right="410" Canvas.Top="390"></Label>
+            <Label Content="New  : " FontSize="20" Canvas.Right="410" Canvas.Top="450"></Label>
+            <Label Content="Engine  : " FontSize="20" Canvas.Right="410" Canvas.Top="510"></Label>
+
+
+
+
 
 
 
@@ -43,7 +51,28 @@
 
             <TextBlock Text="{Binding Color}" Canvas.Right="330" FontSize="20" Canvas.Top="215"></TextBlock>
 
+            <TextBlock Text="{Binding Km}" Canvas.Right="330" FontSize="20" Canvas.Top="275"></TextBlock>
+
+            <TextBlock Text="{Binding Production}" Canvas.Right="210" FontSize="20" Canvas.Top="335"></TextBlock>
+
+            <TextBlock Text="{Binding FuelType}" Canvas.Right="210" FontSize="20" Canvas.Top="395"></TextBlock>
+
+            <TextBlock Text="{Binding NewOrOld}" Canvas.Right="300" FontSize="20" Canvas.Top="455"></TextBlock>
+
+            <TextBlock Text="{Binding Engine}" Canvas.Right="300" FontSize="20" Canvas.Top="515"></TextBlock>
+
+
+
+
             <Canvas>
+
+                <Button Command="{Binding BuyButton}" Width="330" Height="100" Content="Buy" FontSize="50" Canvas.Top="450" Canvas.Left="270">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="40"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
 
                 <Button Command="{Binding BackButton}" Canvas.Left="1410" Canvas.Top="5" Width="66" Height="66">
                     <Button.Resources>
@@ -52,7 +81,7 @@
                         </Style>
                     </Button.Resources>
                     <Image Source="/Images/back arrow.png" Canvas.Left="1405" Canvas.Top="-2" Width="80" HorizontalAlignment="Left" Height="84" VerticalAlignment="Top"></Image>
-                    
+
                 </Button>
 
 
