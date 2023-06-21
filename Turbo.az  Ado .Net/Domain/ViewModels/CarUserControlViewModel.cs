@@ -143,7 +143,6 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
 
                 MainUserControlViewModel.Production = car.Year;
 
-
                 var fueltype=unitOfWork.fuelRepository.GetData(car.FuelTypeId);
 
                 MainUserControlViewModel.FuelType = fueltype.Name;
@@ -184,9 +183,9 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
             {
                 MessageBox.Show("Buy successfully");
 
-                Car car = new Car();
+                //Car car = new Car();
 
-                car.Id = Id;
+                //car.Id = Id;
 
                 //unitOfWork.carRepository.DeleteData(car);
 

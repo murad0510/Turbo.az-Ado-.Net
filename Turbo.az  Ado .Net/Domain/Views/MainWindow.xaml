@@ -14,6 +14,8 @@
 
         </Grid.RowDefinitions>
 
+        <Image Grid.Row="0"  Source="/Images/basket.png"></Image>
+
         <Label Background="Red" Content="Turbo.az" Foreground="White" FontSize="100" HorizontalContentAlignment="Center"></Label>
         <ScrollViewer Grid.Row="2">
             <WrapPanel x:Name="CarWrapPanel" Grid.Row="2"></WrapPanel>

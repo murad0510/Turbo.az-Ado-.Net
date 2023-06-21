@@ -121,7 +121,6 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
 
             MainUserControlViewModel.City = city.Name;
 
-
             MainUserControlViewModel.Model = brand.Name;
 
             MainUserControlViewModel.Km = car.Km;
@@ -132,7 +131,7 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
 
             var fuelType = unitOfWork.fuelRepository.GetData(fuelTypeId).Name;
 
-            MainUserControlViewModel.Id = car.Id;
+            //MainUserControlViewModel.Id = car.Id;
 
             MainUserControlViewModel.FuelType = fuelType;
 
@@ -232,7 +231,7 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
                         }
                     }
                 }
-                else if (Brand != null && FuelType != null && Model == null && Color == null)
+                if (Brand != null && FuelType != null && Model == null && Color == null)
                 {
                     var GetAllCars = unitOfWork.carRepository.GetAll();
 
@@ -257,7 +256,7 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
                         }
                     }
                 }
-                else if (Brand != null && Model != null && Color != null && FuelType == null)
+                if (Brand != null && Model != null && Color != null && FuelType == null)
                 {
                     var GetAllCars = unitOfWork.carRepository.GetAll();
 
@@ -280,7 +279,7 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
                         }
                     }
                 }
-                else if (Brand != null && Model != null && FuelType != null)
+                if (Brand != null && Model != null && FuelType != null)
                 {
                     var GetAllCars = unitOfWork.carRepository.GetAll();
 
@@ -303,7 +302,7 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
                         }
                     }
                 }
-                else if (Brand != null && Model != null)
+                if (Brand != null && Model != null)
                 {
                     var GetAllCars = unitOfWork.carRepository.GetAll();
 
@@ -323,7 +322,7 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
                         }
                     }
                 }
-                else if (Brand != null && Model == null && Color != null)
+                if (Brand != null && Model == null && Color != null)
                 {
                     var GetAllCars = unitOfWork.carRepository.GetAll();
 
@@ -345,7 +344,7 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
                         }
                     }
                 }
-                else if (Brand != null && Model == null && Color != null && FuelType != null)
+                if (Brand != null && Model == null && Color != null && FuelType != null)
                 {
                     var GetAllCars = unitOfWork.carRepository.GetAll();
 
@@ -370,7 +369,7 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
                         }
                     }
                 }
-                else if (Brand == null && Color != null && FuelType != null)
+                if (Brand == null && Color != null && FuelType != null)
                 {
                     var GetAllCars = unitOfWork.carRepository.GetAll();
 
@@ -391,7 +390,7 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
                         }
                     }
                 }
-                else if (Brand == null && Color == null && FuelType != null)
+                if (Brand == null && Color == null && FuelType != null)
                 {
                     var GetAllCars = unitOfWork.carRepository.GetAll();
 
@@ -410,7 +409,7 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
                         }
                     }
                 }
-                else if (Brand == null && Color != null)
+                if (Brand == null && Color != null)
                 {
                     var GetAllCars = unitOfWork.carRepository.GetAll();
 
@@ -428,7 +427,7 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
                         }
                     }
                 }
-                else if (Brand != null && Model == null)
+                if (Brand != null && Model == null)
                 {
                     var GetAllCars = unitOfWork.carRepository.GetAll();
 

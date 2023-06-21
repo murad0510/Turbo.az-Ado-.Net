@@ -24,16 +24,6 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
             set { id = value; OnPropertyChanged(); }
         }
 
-        //private Car car;
-
-        //public Car Car
-        //{
-        //    get { return car; }
-        //    set { car = value; OnPropertyChanged(); }
-        //}
-
-
-
         private decimal price;
 
         public decimal Price
@@ -135,7 +125,7 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
                 carUserControlView.Production = Production;
                 carUserControlView.Engine = Engine;
                 carUserControlView.FuelType = FuelType;
-                carUserControlView.Id = Id;
+                //carUserControlView.Id = Id;
 
                 if (IsNew)
                 {

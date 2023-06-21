@@ -27,14 +27,14 @@
             </Canvas>
 
             <Label Content="City   : " FontSize="20" Canvas.Right="460" Canvas.Top="30"></Label>
-            <Label Content="Model  : " FontSize="20" Canvas.Right="440" Canvas.Top="90"></Label>
-            <Label Content="Price  : " FontSize="20" Canvas.Right="455" Canvas.Top="150"></Label>
-            <Label Content="Color  : " FontSize="20" Canvas.Right="455" Canvas.Top="210"></Label>
-            <Label Content="Km  : " FontSize="20" Canvas.Right="470" Canvas.Top="270"></Label>
-            <Label Content="Production  : " FontSize="20" Canvas.Right="410" Canvas.Top="330"></Label>
-            <Label Content="Fuel Type  : " FontSize="20" Canvas.Right="410" Canvas.Top="390"></Label>
-            <Label Content="New  : " FontSize="20" Canvas.Right="410" Canvas.Top="450"></Label>
-            <Label Content="Engine  : " FontSize="20" Canvas.Right="410" Canvas.Top="510"></Label>
+            <Label Content="Model  : " FontSize="20" Canvas.Right="440" Canvas.Top="90" HorizontalAlignment="Left" Canvas.Left="952" VerticalAlignment="Center"></Label>
+            <Label Content="Price  : " FontSize="20" Canvas.Right="455" Canvas.Top="150" HorizontalAlignment="Left" Canvas.Left="966" VerticalAlignment="Center"></Label>
+            <Label Content="Color  : " FontSize="20" Canvas.Right="455" Canvas.Top="210" HorizontalAlignment="Left" Canvas.Left="961" VerticalAlignment="Center"></Label>
+            <Label Content="Km  : " FontSize="20" Canvas.Right="470" Canvas.Top="270" HorizontalAlignment="Left" Canvas.Left="975" VerticalAlignment="Center"></Label>
+            <Label Content="Production  : " FontSize="20" Canvas.Right="410" Canvas.Top="330" HorizontalAlignment="Left" Canvas.Left="917" VerticalAlignment="Center"></Label>
+            <Label Content="Fuel Type  : " FontSize="20" Canvas.Right="410" Canvas.Top="395" Canvas.Left="925"></Label>
+            <Label Content="New  : " FontSize="20" Canvas.Right="410" Canvas.Top="450" HorizontalAlignment="Left" Canvas.Left="970" VerticalAlignment="Center"></Label>
+            <Label Content="Engine  : " FontSize="20" Canvas.Right="410" Canvas.Top="510" HorizontalAlignment="Left" Canvas.Left="955" VerticalAlignment="Center"></Label>
 
 
 
@@ -43,30 +43,30 @@
 
 
 
-            <Label Content="{Binding City}" Foreground="white" FontSize="20" Canvas.Left="1055" Canvas.Top="43"></Label>
+            <Label Content="{Binding City}" FontWeight="Bold" Foreground="Black" FontSize="20" Canvas.Left="1055" Canvas.Top="31"></Label>
 
-            <Label Content="{Binding Model}" Canvas.Left="1070" FontSize="20" Canvas.Top="90"></Label>
+            <Label Content="{Binding Model}" FontWeight="Bold" Canvas.Left="1070" FontSize="20" Canvas.Top="90"></Label>
 
-            <TextBlock Text="{Binding Price}" Canvas.Left="1050" FontSize="20" Canvas.Top="155"></TextBlock>
+            <TextBlock Text="{Binding Price}" FontWeight="Bold" Canvas.Left="1050" FontSize="20" Canvas.Top="155"></TextBlock>
 
-            <TextBlock Text="{Binding Color}" Canvas.Left="1050" FontSize="20" Canvas.Top="215"></TextBlock>
+            <TextBlock Text="{Binding Color}" FontWeight="Bold" Canvas.Left="1050" FontSize="20" Canvas.Top="215"></TextBlock>
 
-            <TextBlock Text="{Binding Km}" Canvas.Left="1030" FontSize="20" Canvas.Top="275"></TextBlock>
+            <TextBlock Text="{Binding Km}" FontWeight="Bold" Canvas.Left="1040" FontSize="20" Canvas.Top="275"></TextBlock>
 
-            <TextBlock Text="{Binding Production}" Canvas.Left="1100" FontSize="20" Canvas.Top="335"></TextBlock>
+            <TextBlock Text="{Binding Production}" FontWeight="Bold" Canvas.Left="1050" FontSize="20" Canvas.Top="335"></TextBlock>
 
-            <TextBlock Text="{Binding FuelType}" Canvas.Left="1100" FontSize="20" Canvas.Top="395"></TextBlock>
+            <TextBlock Text="{Binding FuelType}" FontWeight="Bold" Canvas.Left="1050" FontSize="20" Canvas.Top="400"></TextBlock>
 
-            <TextBlock Text="{Binding NewOrOld}" Canvas.Left="1100" FontSize="20" Canvas.Top="455"></TextBlock>
+            <TextBlock Text="{Binding NewOrOld}" FontWeight="Bold" Canvas.Left="1050" FontSize="20" Canvas.Top="455"></TextBlock>
 
-            <TextBlock Text="{Binding Engine}" Canvas.Left="1100" FontSize="20" Canvas.Top="515"></TextBlock>
+            <TextBlock Text="{Binding Engine}" FontWeight="Bold" Canvas.Left="1050" FontSize="20" Canvas.Top="515"></TextBlock>
 
 
 
 
             <Canvas>
 
-                <Button Command="{Binding BuyButton}" Width="330" Height="100" Content="Buy" FontSize="50" Canvas.Top="450" Canvas.Left="270">
+                <Button  Command="{Binding BuyButton}" Width="330" Height="100" Content="Buy" FontSize="50" Canvas.Top="450" Canvas.Left="270">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="40"/>
@@ -74,16 +74,16 @@
                     </Button.Resources>
                 </Button>
 
-                <Button Command="{Binding BackButton}" Canvas.Left="1410" Canvas.Top="5" Width="66" Height="66">
+                <Button Style="{StaticResource allButtons}" Panel.ZIndex="1" Background="Transparent" Command="{Binding BackButton}" Canvas.Left="1413" Canvas.Top="5" Width="63" Height="63">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="40"/>
                         </Style>
                     </Button.Resources>
-                    <Image Source="/Images/back arrow.png" Canvas.Left="1405" Canvas.Top="-1" Width="80" Height="84"></Image>
 
                 </Button>
 
+                <Image Source="/Images/back arrow.png" Canvas.Left="1405" Canvas.Top="-5" Width="80" Height="84" RenderTransformOrigin="0.483,0.446"></Image>
 
             </Canvas>
 
