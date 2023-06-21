@@ -43,23 +43,23 @@
 
 
 
-            <Label Content="{Binding City}"   Canvas.Right="370" FontSize="20" Canvas.Top="35"></Label>
+            <Label Content="{Binding City}" Foreground="white" FontSize="20" Canvas.Left="1055" Canvas.Top="43"></Label>
 
-            <TextBlock Text="{Binding Model}" Canvas.Right="250" FontSize="20" Canvas.Top="95"></TextBlock>
+            <Label Content="{Binding Model}" Canvas.Left="1070" FontSize="20" Canvas.Top="90"></Label>
 
-            <TextBlock Text="{Binding Price}" Canvas.Right="330" FontSize="20" Canvas.Top="155"></TextBlock>
+            <TextBlock Text="{Binding Price}" Canvas.Left="1050" FontSize="20" Canvas.Top="155"></TextBlock>
 
-            <TextBlock Text="{Binding Color}" Canvas.Right="330" FontSize="20" Canvas.Top="215"></TextBlock>
+            <TextBlock Text="{Binding Color}" Canvas.Left="1050" FontSize="20" Canvas.Top="215"></TextBlock>
 
-            <TextBlock Text="{Binding Km}" Canvas.Right="330" FontSize="20" Canvas.Top="275"></TextBlock>
+            <TextBlock Text="{Binding Km}" Canvas.Left="1030" FontSize="20" Canvas.Top="275"></TextBlock>
 
-            <TextBlock Text="{Binding Production}" Canvas.Right="210" FontSize="20" Canvas.Top="335"></TextBlock>
+            <TextBlock Text="{Binding Production}" Canvas.Left="1100" FontSize="20" Canvas.Top="335"></TextBlock>
 
-            <TextBlock Text="{Binding FuelType}" Canvas.Right="210" FontSize="20" Canvas.Top="395"></TextBlock>
+            <TextBlock Text="{Binding FuelType}" Canvas.Left="1100" FontSize="20" Canvas.Top="395"></TextBlock>
 
-            <TextBlock Text="{Binding NewOrOld}" Canvas.Right="300" FontSize="20" Canvas.Top="455"></TextBlock>
+            <TextBlock Text="{Binding NewOrOld}" Canvas.Left="1100" FontSize="20" Canvas.Top="455"></TextBlock>
 
-            <TextBlock Text="{Binding Engine}" Canvas.Right="300" FontSize="20" Canvas.Top="515"></TextBlock>
+            <TextBlock Text="{Binding Engine}" Canvas.Left="1100" FontSize="20" Canvas.Top="515"></TextBlock>
 
 
 
@@ -80,7 +80,7 @@
                             <Setter Property="CornerRadius" Value="40"/>
                         </Style>
                     </Button.Resources>
-                    <Image Source="/Images/back arrow.png" Canvas.Left="1405" Canvas.Top="-2" Width="80" HorizontalAlignment="Left" Height="84" VerticalAlignment="Top"></Image>
+                    <Image Source="/Images/back arrow.png" Canvas.Left="1405" Canvas.Top="-1" Width="80" Height="84"></Image>
 
                 </Button>
 
