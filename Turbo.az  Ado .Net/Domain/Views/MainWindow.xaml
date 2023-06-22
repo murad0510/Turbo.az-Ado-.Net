@@ -22,17 +22,17 @@
         </ScrollViewer>
 
         <Canvas Grid.Row="1">
-            <ComboBox SelectedItem="{Binding Brand}"  DisplayMemberPath="Name" ItemsSource="{Binding Brands}" Width="150" Canvas.Top="20" Canvas.Left="80">
+            <ComboBox SelectedItem="{Binding Brand}"  DisplayMemberPath="Name" ItemsSource="{Binding Brands}" Width="150" Canvas.Top="20" Canvas.Left="291" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
                         <i:InvokeCommandAction Command="{Binding SelectionChanged}"></i:InvokeCommandAction>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </ComboBox>
-            
-            <ComboBox IsEnabled="{Binding IsEnabledModel}" SelectedItem="{Binding Model}" DisplayMemberPath="Name" ItemsSource="{Binding Models}" Width="150" Canvas.Top="20" Canvas.Left="350"></ComboBox>
-            <ComboBox DisplayMemberPath="ColorName" SelectedItem="{Binding Color}" ItemsSource="{Binding Colors}" Width="100" Canvas.Top="20" Canvas.Left="690"></ComboBox>
-            <ComboBox DisplayMemberPath="Name" SelectedItem="{Binding FuelType}" ItemsSource="{Binding FuelTypes}" Width="150" Canvas.Top="50" Canvas.Left="80"></ComboBox>
+
+            <ComboBox IsEnabled="{Binding IsEnabledModel}" SelectedItem="{Binding Model}" DisplayMemberPath="Name" ItemsSource="{Binding Models}" Width="150" Canvas.Top="20" Canvas.Left="640" HorizontalAlignment="Left" VerticalAlignment="Center"></ComboBox>
+            <ComboBox DisplayMemberPath="ColorName" SelectedItem="{Binding Color}" ItemsSource="{Binding Colors}" Width="100" Canvas.Top="15" Canvas.Left="966" HorizontalAlignment="Left" VerticalAlignment="Center"></ComboBox>
+            <ComboBox DisplayMemberPath="Name" SelectedItem="{Binding FuelType}" ItemsSource="{Binding FuelTypes}" Width="150" Canvas.Top="58" Canvas.Left="291" HorizontalAlignment="Left" VerticalAlignment="Top"></ComboBox>
 
 
             <Button Command="{Binding Show}" Width="100" Height="30" Canvas.Right="20" Canvas.Top="50" Content="Show">
@@ -42,7 +42,6 @@
                     </Style>
                 </Button.Resources>
             </Button>
-
 
         </Canvas>
     </Grid>

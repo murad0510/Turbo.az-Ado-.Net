@@ -38,6 +38,7 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
             set { brand = value; OnPropertyChanged(); }
         }
 
+
         private ObservableCollection<Model> models;
 
         public ObservableCollection<Model> Models
@@ -131,15 +132,11 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
 
             var fuelType = unitOfWork.fuelRepository.GetData(fuelTypeId).Name;
 
-            //MainUserControlViewModel.Id = car.Id;
-
             MainUserControlViewModel.FuelType = fuelType;
 
             MainUserControlViewModel.Engine = car.Engine;
 
             MainUserControlViewModel.IsNew = car.IsNew;
-
-            //MainUserControlViewModel.Car = GetAllCar[i];
 
             var colorId = unitOfWork.carRepository.GetData(index).ColorId;
             var color = unitOfWork.colorRepository.GetData(colorId).ColorName;
@@ -149,7 +146,7 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
             App.wrapPanel.Children.Add(MainUserControl);
         }
 
-        public MainWindowViewModel()
+        public void PlaceTheData()
         {
             unitOfWork = new EFUnitOfWork();
 
@@ -157,10 +154,17 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
 
             var BrandsCount = unitOfWork.brandRepository.GetAll();
 
+            Brands.Clear();
+            Brand brand = new Brand();
+            brand.Name = "None";
+
+            Brands.Add(brand);
+
             for (int i = 0; i < BrandsCount.Count; i++)
             {
                 Brands.Add(BrandsCount[i]);
             }
+
 
             Models = new ObservableCollection<Model>();
 
@@ -168,282 +172,221 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
 
             SelectionChanged = new RelayCommand((obj) =>
             {
-                IsEnabledModel = true;
-                Models.Clear();
-                for (int i = 0; i < ModelGetAll.Count; i++)
+                if (Brand.Name != "None")
                 {
-                    if (ModelGetAll[i].BrandId == Brand.Id)
+                    IsEnabledModel = true;
+                    Models.Clear();
+
+                    Model model = new Model();
+                    model.Name = "None";
+
+                    Models.Add(model);
+
+                    for (int i = 0; i < ModelGetAll.Count; i++)
                     {
-                        Models.Add(ModelGetAll[i]);
+                        if (ModelGetAll[i].BrandId == Brand.Id)
+                        {
+                            Models.Add(ModelGetAll[i]);
+                        }
                     }
+                }
+                else
+                {
+                    Model = Models[0];
+                    IsEnabledModel = false;
                 }
             });
 
             Colors = new ObservableCollection<CarColor>();
 
             var colors = unitOfWork.colorRepository.GetAll();
+            Colors.Clear();
+
+            CarColor color = new CarColor();
+            color.ColorName = "None";
+
+            Colors.Add(color);
 
             for (int i = 0; i < colors.Count; i++)
             {
                 Colors.Add(colors[i]);
             }
 
-            var GetAllCar = unitOfWork.carRepository.GetAll();
-
-            for (int i = 1; i < GetAllCar.Count + 1; i++)
-            {
-                AddUserControlInWrap(i);
-            }
-
             FuelTypes = new ObservableCollection<FuelType>();
 
             var FuelTypeGetAll = unitOfWork.fuelRepository.GetAll();
+
+            FuelType fuelType = new FuelType();
+            fuelType.Name = "None";
+
+            FuelTypes.Add(fuelType);
 
             for (int i = 0; i < FuelTypeGetAll.Count; i++)
             {
                 FuelTypes.Add(FuelTypeGetAll[i]);
             }
 
+            var GetAllCar = unitOfWork.carRepository.GetAll();
+
+            for (int i = 0; i < GetAllCar.Count; i++)
+            {
+                AddUserControlInWrap(GetAllCar[i].Id);
+            }
+
+        }
+
+        public MainWindowViewModel()
+        {
+            unitOfWork = new EFUnitOfWork();
+
+            PlaceTheData();
+
             Show = new RelayCommand((obj) =>
             {
-                if (Brand != null && Model != null && Color != null && FuelType != null)
-                {
-                    var GetAllCars = unitOfWork.carRepository.GetAll();
+                var GetAllCars = unitOfWork.carRepository.GetAll();
 
+                if (Brand != null)
+                {
                     App.wrapPanel.Children.Clear();
 
-                    for (int i = 1; i < GetAllCars.Count; i++)
+                    if (Brand.Name != "None")
                     {
-                        var carObj = unitOfWork.carRepository.GetData(i);
+                        ObservableCollection<Car> cars = new ObservableCollection<Car>();
 
-                        var modelId = carObj.ModelId;
-
-                        var brandObj = unitOfWork.modelRepository.GetData(modelId).BrandId;
-
-                        var color = unitOfWork.colorRepository.GetData(carObj.ColorId);
-
-                        var fuel = unitOfWork.fuelRepository.GetData(carObj.FuelTypeId);
-
-
-                        if (brandObj == Brand.Id && modelId == Model.Id && color.Id == Color.Id && fuel.Id == FuelType.Id)
+                        for (int i = 0; i < GetAllCars.Count; i++)
                         {
-                            AddUserControlInWrap(i);
+                            var car = unitOfWork.carRepository.GetData(GetAllCars[i].Id);
+
+                            var modelId = car.ModelId;
+
+                            var brandId = unitOfWork.modelRepository.GetData(modelId).BrandId;
+
+                            if (brandId == Brand.Id)
+                            {
+                                AddUserControlInWrap(GetAllCars[i].Id);
+                                cars.Add(GetAllCars[i]);
+                            }
+                        }
+                        GetAllCars = cars;
+                    }
+                    else
+                    {
+                        for (int i = 0; i < GetAllCars.Count; i++)
+                        {
+                            AddUserControlInWrap(GetAllCars[i].Id);
                         }
                     }
                 }
-                if (Brand != null && FuelType != null && Model == null && Color == null)
+                if (Model != null)
                 {
-                    var GetAllCars = unitOfWork.carRepository.GetAll();
-
                     App.wrapPanel.Children.Clear();
 
-                    for (int i = 1; i < GetAllCars.Count; i++)
+                    if (Model.Name != "None")
                     {
-                        var carObj = unitOfWork.carRepository.GetData(i);
-
-                        var modelId = carObj.ModelId;
-
-                        var brandObj = unitOfWork.modelRepository.GetData(modelId).BrandId;
-
-                        var color = unitOfWork.colorRepository.GetData(carObj.ColorId);
-
-
-                        var fuel = unitOfWork.fuelRepository.GetData(carObj.FuelTypeId);
-
-                        if (brandObj == Brand.Id && fuel.Id == FuelType.Id)
+                        ObservableCollection<Car> getcars = new ObservableCollection<Car>();
+                        for (int i = 0; i < GetAllCars.Count; i++)
                         {
-                            AddUserControlInWrap(i);
+                            var car = GetAllCars[i];
+
+                            if (car.ModelId == Model.Id)
+                            {
+                                AddUserControlInWrap(car.Id);
+                                getcars.Add(GetAllCars[i]);
+                            }
+                        }
+                        GetAllCars = getcars;
+                    }
+                    else
+                    {
+                        for (int i = 0; i < GetAllCars.Count; i++)
+                        {
+                            AddUserControlInWrap(GetAllCars[i].Id);
                         }
                     }
                 }
-                if (Brand != null && Model != null && Color != null && FuelType == null)
+                if (Color != null)
                 {
-                    var GetAllCars = unitOfWork.carRepository.GetAll();
-
                     App.wrapPanel.Children.Clear();
-
-                    for (int i = 1; i < GetAllCars.Count; i++)
+                    if (Color.ColorName != "None")
                     {
-                        var carObj = unitOfWork.carRepository.GetData(i);
-
-                        var modelId = carObj.ModelId;
-
-                        var brandObj = unitOfWork.modelRepository.GetData(modelId).BrandId;
-
-                        var color = unitOfWork.colorRepository.GetData(carObj.ColorId);
-
-
-                        if (brandObj == Brand.Id && modelId == Model.Id && color.Id == Color.Id)
+                        ObservableCollection<Car> getcars = new ObservableCollection<Car>();
+                        if (GetAllCars.Count != 0)
                         {
-                            AddUserControlInWrap(i);
+                            for (int i = 0; i < GetAllCars.Count; i++)
+                            {
+                                var car = GetAllCars[i];
+
+                                if (car.ColorId == Color.Id)
+                                {
+                                    AddUserControlInWrap(car.Id);
+                                    getcars.Add(GetAllCars[i]);
+                                }
+                            }
+                            GetAllCars = getcars;
+                        }
+                        else
+                        {
+                            for (int i = 0; i < GetAllCars.Count; i++)
+                            {
+                                var car = GetAllCars[i];
+
+                                if (car.ColorId == Color.Id)
+                                {
+                                    AddUserControlInWrap(car.Id);
+                                    getcars.Add(GetAllCars[i]);
+                                }
+                            }
+                            GetAllCars = getcars;
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < GetAllCars.Count; i++)
+                        {
+                            AddUserControlInWrap(GetAllCars[i].Id);
                         }
                     }
                 }
-                if (Brand != null && Model != null && FuelType != null)
+                if (FuelType != null)
                 {
-                    var GetAllCars = unitOfWork.carRepository.GetAll();
-
                     App.wrapPanel.Children.Clear();
-
-                    for (int i = 1; i < GetAllCars.Count; i++)
+                    if (FuelType.Name != "None")
                     {
-                        var carObj = unitOfWork.carRepository.GetData(i);
-
-                        var modelId = carObj.ModelId;
-
-                        var brandObj = unitOfWork.modelRepository.GetData(modelId).BrandId;
-
-                        var fuel = unitOfWork.fuelRepository.GetData(carObj.FuelTypeId);
-
-
-                        if (brandObj == Brand.Id && modelId == Model.Id && fuel.Id == FuelType.Id)
+                        ObservableCollection<Car> getcars = new ObservableCollection<Car>();
+                        if (GetAllCars.Count != 0)
                         {
-                            AddUserControlInWrap(i);
+                            for (int i = 0; i < GetAllCars.Count; i++)
+                            {
+                                var car = GetAllCars[i];
+
+                                if (car.FuelTypeId == FuelType.Id)
+                                {
+                                    AddUserControlInWrap(car.Id);
+                                    getcars.Add(GetAllCars[i]);
+                                }
+                            }
+                            GetAllCars = getcars;
+                        }
+                        else
+                        {
+                            for (int i = 0; i < GetAllCars.Count; i++)
+                            {
+                                var car = GetAllCars[i];
+
+                                if (car.FuelTypeId == FuelType.Id)
+                                {
+                                    AddUserControlInWrap(car.Id);
+                                    getcars.Add(GetAllCars[i]);
+                                }
+                            }
+                            GetAllCars = getcars;
                         }
                     }
-                }
-                if (Brand != null && Model != null)
-                {
-                    var GetAllCars = unitOfWork.carRepository.GetAll();
-
-                    App.wrapPanel.Children.Clear();
-
-                    for (int i = 1; i < GetAllCars.Count; i++)
+                    else
                     {
-                        var carObj = unitOfWork.carRepository.GetData(i);
-
-                        var modelId = carObj.ModelId;
-
-                        var brandObj = unitOfWork.modelRepository.GetData(modelId).BrandId;
-
-                        if (brandObj == Brand.Id && modelId == Model.Id)
+                        for (int i = 0; i < GetAllCars.Count; i++)
                         {
-                            AddUserControlInWrap(i);
-                        }
-                    }
-                }
-                if (Brand != null && Model == null && Color != null)
-                {
-                    var GetAllCars = unitOfWork.carRepository.GetAll();
-
-                    App.wrapPanel.Children.Clear();
-
-                    for (int i = 1; i < GetAllCars.Count + 1; i++)
-                    {
-                        var carObj = unitOfWork.carRepository.GetData(i);
-
-                        var modelId = carObj.ModelId;
-
-                        var brandObj = unitOfWork.modelRepository.GetData(modelId).BrandId;
-
-                        var color = unitOfWork.colorRepository.GetData(carObj.ColorId);
-
-                        if (brandObj == Brand.Id && color.Id == Color.Id)
-                        {
-                            AddUserControlInWrap(i);
-                        }
-                    }
-                }
-                if (Brand != null && Model == null && Color != null && FuelType != null)
-                {
-                    var GetAllCars = unitOfWork.carRepository.GetAll();
-
-                    App.wrapPanel.Children.Clear();
-
-                    for (int i = 1; i < GetAllCars.Count + 1; i++)
-                    {
-                        var carObj = unitOfWork.carRepository.GetData(i);
-
-                        var modelId = carObj.ModelId;
-
-                        var brandObj = unitOfWork.modelRepository.GetData(modelId).BrandId;
-
-                        var color = unitOfWork.colorRepository.GetData(carObj.ColorId);
-
-                        var fuel = unitOfWork.fuelRepository.GetData(carObj.FuelTypeId);
-
-
-                        if (brandObj == Brand.Id && color.Id == Color.Id && fuel.Id == FuelType.Id)
-                        {
-                            AddUserControlInWrap(i);
-                        }
-                    }
-                }
-                if (Brand == null && Color != null && FuelType != null)
-                {
-                    var GetAllCars = unitOfWork.carRepository.GetAll();
-
-                    App.wrapPanel.Children.Clear();
-
-                    for (int i = 1; i < GetAllCars.Count + 1; i++)
-                    {
-                        var carObj = unitOfWork.carRepository.GetData(i);
-
-                        var color = unitOfWork.colorRepository.GetData(carObj.ColorId);
-
-                        var fuel = unitOfWork.fuelRepository.GetData(carObj.FuelTypeId);
-
-
-                        if (color.Id == Color.Id && fuel.Id == FuelType.Id)
-                        {
-                            AddUserControlInWrap(i);
-                        }
-                    }
-                }
-                if (Brand == null && Color == null && FuelType != null)
-                {
-                    var GetAllCars = unitOfWork.carRepository.GetAll();
-
-                    App.wrapPanel.Children.Clear();
-
-                    for (int i = 1; i < GetAllCars.Count + 1; i++)
-                    {
-                        var carObj = unitOfWork.carRepository.GetData(i);
-
-                        var fuel = unitOfWork.fuelRepository.GetData(carObj.FuelTypeId);
-
-
-                        if (fuel.Id == FuelType.Id)
-                        {
-                            AddUserControlInWrap(i);
-                        }
-                    }
-                }
-                if (Brand == null && Color != null)
-                {
-                    var GetAllCars = unitOfWork.carRepository.GetAll();
-
-                    App.wrapPanel.Children.Clear();
-
-                    for (int i = 1; i < GetAllCars.Count + 1; i++)
-                    {
-                        var carObj = unitOfWork.carRepository.GetData(i);
-
-                        var color = unitOfWork.colorRepository.GetData(carObj.ColorId);
-
-                        if (color.Id == Color.Id)
-                        {
-                            AddUserControlInWrap(i);
-                        }
-                    }
-                }
-                if (Brand != null && Model == null)
-                {
-                    var GetAllCars = unitOfWork.carRepository.GetAll();
-
-                    App.wrapPanel.Children.Clear();
-
-                    for (int i = 1; i < GetAllCars.Count; i++)
-                    {
-                        var carObj = unitOfWork.carRepository.GetData(i);
-
-                        var modelId = carObj.ModelId;
-
-                        var brandObj = unitOfWork.modelRepository.GetData(modelId).BrandId;
-
-                        if (brandObj == Brand.Id)
-                        {
-                            AddUserControlInWrap(i);
+                            AddUserControlInWrap(GetAllCars[i].Id);
                         }
                     }
                 }

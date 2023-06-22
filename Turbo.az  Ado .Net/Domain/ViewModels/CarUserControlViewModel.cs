@@ -183,12 +183,6 @@ namespace Turbo.az__Ado.Net.Domain.ViewModels
             {
                 MessageBox.Show("Buy successfully");
 
-                //Car car = new Car();
-
-                //car.Id = Id;
-
-                //unitOfWork.carRepository.DeleteData(car);
-
                 App.wrapPanel.Children.Clear();
 
                 Refresh();
