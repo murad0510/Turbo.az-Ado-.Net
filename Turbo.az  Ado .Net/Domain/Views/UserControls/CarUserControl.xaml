@@ -83,7 +83,7 @@
 
                 </Button>
 
-                <Image Source="/Images/back arrow.png" Canvas.Left="14" Canvas.Top="-5" Width="80" Height="84" RenderTransformOrigin="0.483,0.446"></Image>
+                <Image Source="/Images/back arrow.png" Canvas.Left="11" Canvas.Top="-5" Width="80" Height="84" RenderTransformOrigin="0.483,0.446"></Image>
 
             </Canvas>
 
