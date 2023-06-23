@@ -74,7 +74,7 @@
                     </Button.Resources>
                 </Button>
 
-                <Button Style="{StaticResource allButtons}" Panel.ZIndex="1" Background="Transparent" Command="{Binding BackButton}" Canvas.Left="1413" Canvas.Top="5" Width="63" Height="63">
+                <Button Style="{StaticResource allButtons}" Panel.ZIndex="1" Background="Transparent" Command="{Binding BackButton}" Canvas.Left="14" Canvas.Top="5" Width="63" Height="63">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="40"/>
@@ -83,7 +83,7 @@
 
                 </Button>
 
-                <Image Source="/Images/back arrow.png" Canvas.Left="1405" Canvas.Top="-5" Width="80" Height="84" RenderTransformOrigin="0.483,0.446"></Image>
+                <Image Source="/Images/back arrow.png" Canvas.Left="14" Canvas.Top="-5" Width="80" Height="84" RenderTransformOrigin="0.483,0.446"></Image>
 
             </Canvas>
 
